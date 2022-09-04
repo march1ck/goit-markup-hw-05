@@ -92,7 +92,7 @@ ol {
   padding: 32px 0px;
   transition: color var(--transition-dur-and-func);
 }
-.current::after {
+.menu-link.current::after {
   content: "";
   display: block;
   position: absolute;
@@ -102,7 +102,7 @@ ol {
   height: 4px;
   background-color: var(--accent-color);
   border-radius: 2px;
-  transform: scaleX(0);
+  transform: scaleX(1);
   transition: transform var(--transition-dur-and-func);
 }
 .menu-link::after {
@@ -277,6 +277,25 @@ ol {
   display: block;
   max-width: 100%;
 }
+.image-text {
+  position: relative;
+}
+.over-text-works {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  width: 370px;
+  height: 70px;
+  text-transform: uppercase;
+  color: var(--hero-logo-text);
+  background: rgba(47, 48, 58, 0.8);
+}
 /* /Works */
 
 /* Team */
@@ -318,11 +337,12 @@ ol {
   display: flex;
   justify-content: center;
   column-gap: 10px;
-  /* padding-bottom: 30px; */
+  padding-bottom: 30px;
 }
 .social-list-icon {
   display: flex;
   fill: var(--social-list-icon);
+  transition: fill var(--transition-dur-and-func);
 }
 
 .social-link-list {
@@ -332,6 +352,7 @@ ol {
   width: 44px;
   height: 44px;
   border-radius: 50%;
+  transition: background-color var(--transition-dur-and-func);
 }
 .social-link-list:hover,
 .social-link-list:focus {
@@ -358,20 +379,20 @@ ol {
   border-radius: 4px;
   border: 1px solid var(--social-list-icon);
   height: 92px;
+  color: var(--social-list-icon);
+  transition: color var(--transition-dur-and-func),
+    border var(--transition-dur-and-func);
 }
 .icon-company {
   width: 106px;
   height: 60px;
-  fill: var(--social-list-icon);
+  fill: currentColor;
 }
 
 .customer-link:hover,
 .customer-link:focus {
   border-color: var(--accent-color);
-}
-.customer-link:hover .icon-company,
-.customer-link:focus .icon-company {
-  fill: var(--accent-color);
+  color: var(--accent-color);
 }
 
 /* footer */
@@ -402,12 +423,14 @@ ol {
   font-style: normal;
   font-size: 14px;
   line-height: 1.7;
+  transition: color var(--transition-dur-and-func);
 }
 .contacts {
   color: rgba(255, 255, 255, 0.6);
   font-style: normal;
   font-size: 14px;
   line-height: 1.7;
+  transition: color var(--transition-dur-and-func);
 }
 .join-title {
   color: var(--hero-logo-text);
@@ -427,9 +450,11 @@ ol {
   height: 44px;
   border-radius: 50px;
   background: rgba(255, 255, 255, 0.1);
+  color: var(--hero-logo-text);
+  transition: background var(--transition-dur-and-func);
 }
 .footer-social-icon {
-  fill: var(--hero-logo-text);
+  fill: currentColor;
 }
 .footer-social-link:hover,
 .footer-social-link:focus {
@@ -462,6 +487,9 @@ ol {
   letter-spacing: 0.03em;
   padding: 6px 22px;
   border-radius: 4px;
+  transition: background-color var(--transition-dur-and-func),
+    box-shadow var(--transition-dur-and-func),
+    color var(--transition-dur-and-func);
 }
 .portfolio-btn:active,
 .portfolio-btn:hover,
@@ -470,6 +498,36 @@ ol {
   color: var(--hero-logo-text);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 1px rgba(0, 0, 0, 0.12);
+}
+
+.goods-overlay{
+  position: relative;
+  overflow: hidden; 
+  transform: translateY(0%);
+}
+
+.overlay{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1.5;
+  padding: 63px 24px;
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+  transition: transform var(--transition-dur-and-func);
+  
+  color: #ffffff;
+  background-color:rgba(33, 150, 243, 0.9);
+}
+
+.section-icon:hover .overlay,
+.section-icon:focus .overlay{
+transform: translateY(0%);
 }
 .items {
   display: flex;
@@ -488,10 +546,13 @@ ol {
 }
 .section-icon {
   display: block;
+  transition: box-shadow var(--transition-dur-and-func);
+  
 }
 .section-icon:hover,
 .section-icon:focus {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  
 }
 .section-icon .icon-title {
   color: var(--secondary-color-text);
@@ -517,7 +578,8 @@ ol {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) , visibility 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 1000ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal {
   width: 528px;
@@ -529,9 +591,9 @@ ol {
   transform: translate(-50%, -50%);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
+  border-radius: 4px;
 }
-.modal-close-btn{
+.modal-close-btn {
   background: transparent;
   border: 1px solid rgba(0, 0, 0, 0.1);
   position: absolute;
@@ -541,12 +603,17 @@ ol {
   width: 30px;
   height: 30px;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   border-radius: 50%;
-
+  transition: background-color var(--transition-dur-and-func), fill var(--transition-dur-and-func);
 }
-.is-hidden{
+.is-hidden {
   opacity: 0;
   visibility: hidden;
-  pointer-events:none;
+  pointer-events: none;
+}
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  background-color: var(--accent-color);
+  fill: #ffffff;
 }
