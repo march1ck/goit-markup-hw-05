@@ -55,8 +55,6 @@ ol {
 .page-header-container {
   display: flex;
   align-items: center;
-  /* padding-top: 24px;
-  padding-bottom: 25px; */
 }
 
 /* Header logo */
@@ -106,14 +104,13 @@ ol {
   height: 4px;
   background-color: var(--accent-color);
   border-radius: 2px; 
-   transform: scaleX(0);
-  transition: transform var(--transition-dur-and-func);
-
+transform: scaleX(0);
+transition: transform var(--transition-dur-and-func);
 }
-.menu-link:hover::after,
-.menu-link:focus::after{
+.current:hover::after,
+.current:focus::after{
   transform: scaleX(1);
-  
+
 }
 .page-nav :hover,
 .page-nav :focus {
