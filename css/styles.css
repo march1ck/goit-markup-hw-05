@@ -604,6 +604,7 @@ transform: translateY(0%);
   height: 30px;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   border-radius: 50%;
   transition: background-color var(--transition-dur-and-func), fill var(--transition-dur-and-func);
 }
@@ -614,6 +615,5 @@ transform: translateY(0%);
 }
 .modal-close-btn:hover,
 .modal-close-btn:focus {
-  background-color: var(--accent-color);
-  fill: #ffffff;
+  fill: var(--accent-color) ;
 }
